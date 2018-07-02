@@ -54,10 +54,11 @@ class ApiClient(object):
         'object': object,
     }
 
-    def __init__(self, configuration=None, header_name=None, header_value=None,
+    def __init__(self, token='', configuration=None, header_name=None, header_value=None,
                  cookie=None):
         if configuration is None:
             configuration = Configuration()
+            configuration.username = token
         self.configuration = configuration
 
         self.pool = ThreadPool()
